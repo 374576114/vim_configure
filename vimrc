@@ -12,7 +12,8 @@ set smartindent
 set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,usc-bom,gb18030,gbk,gb2312,cp936
-"set fileencoding=chinese
+" switch case
+set cino=g0,:0
 
 set nocompatible
 
@@ -25,3 +26,7 @@ source ~/.vim/scripts/*.vim
 
 "map 
 :map <F5> <Esc>:call CallGpp()<CR>
+
+" ctags
+set tags=tags;
+set autochdir
