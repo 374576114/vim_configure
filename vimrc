@@ -38,8 +38,6 @@ Plugin 'vim-scripts/indentpython.vim'
 call vundle#end()
 filetype plugin indent on
 
-"/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
-"let g:mkdp_path_to_chrome = "google-chrome"
 let g:mkdp_path_to_chrome = '/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
 let g:mkdp_auto_start = 1
 let g:mkdp_auto_open = 1
