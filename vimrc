@@ -63,3 +63,8 @@ au BufNewFile,BufRead *.py
 \ set fileformat=unix |
 
 let python_highlight_all=1
+
+"ctags
+set tags=tags;
+set autochdir;
+set tags+=./tags
