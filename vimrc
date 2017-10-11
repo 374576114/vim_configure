@@ -66,5 +66,5 @@ let python_highlight_all=1
 
 "ctags
 set tags=tags;
-set autochdir;
+set autochdir
 set tags+=./tags
