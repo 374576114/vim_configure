@@ -1,12 +1,20 @@
 set nu
 syntax on
+set hls
+
+"no backup file 
 set nobackup
 set noswapfile
 set noundofile
+
+" indent: 4 spaces
 set ts=4
 set sw=4
-set hls
+set expandtab " space instead of tab
 set smartindent
+set cino=g0
+"[cino](http://edyfox.codecarver.org/html/_vimrc_for_beginners.html)
+"[more cino](http://man.chinaunix.net/newsoft/vi/doc/indent.html)
 
 " coding 
 set encoding=utf-8
@@ -17,7 +25,6 @@ set fileencodings=utf-8,usc-bom,gb18030,gbk,gb2312,cp936
 set nocompatible
 
 colorscheme autumn
-
 
 "python scripts
 source ~/.vim/scripts/*.vim
@@ -38,10 +45,9 @@ Plugin 'vim-scripts/indentpython.vim'
 call vundle#end()
 filetype plugin indent on
 
-"/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
-"let g:mkdp_path_to_chrome = "google-chrome"
+" mark-down configure
 let g:mkdp_path_to_chrome = '/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 let g:mkdp_auto_open = 1
 let g:mkdp_auto_close = 1
 let g:mkdp_refresh_slow = 0
