@@ -29,7 +29,6 @@ colorscheme autumn
 "python scripts
 source ~/.vim/scripts/*.vim
 
-
 "map 
 :map <F5> <Esc>:call CallGpp()<CR>
 
@@ -40,8 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'vim-scripts/indentpython.vim'
-
-
+Plugin 'git://github.com/scrooloose/nerdtree.git'
 call vundle#end()
 filetype plugin indent on
 
@@ -74,3 +72,18 @@ let python_highlight_all=1
 set tags=tags;
 set autochdir
 set tags+=./tags
+
+" highlight
+
+hi CTagsGlobalVariable ctermfg=124 cterm=bold
+hi CTagsMember ctermfg=white
+hi Function ctermfg=40
+set t_Co=256
+
+" NERD tree
+set mouse=a
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd vimenter * NERDTree "自动打开NERDTree
+let NERDTreeWinSize=20
+let NERDTreeIgnore=['\.pyc','\.swp']
