@@ -24,7 +24,7 @@ set fileencodings=utf-8,usc-bom,gb18030,gbk,gb2312,cp936
 
 set nocompatible
 
-colorscheme autumn
+"colorscheme autumn
 
 "python scripts
 source ~/.vim/scripts/*.vim
@@ -33,11 +33,14 @@ source ~/.vim/scripts/*.vim
 :map <F5> <Esc>:call CallGpp()<CR>
 
 " plugin
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+" :h markdown
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
+
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 call vundle#end()
