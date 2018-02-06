@@ -31,5 +31,6 @@ the scripts plugin and vimrc
 就重点关注有`stderr`的那个log
 
 **Arch 需要装的包**
+
 `cmake` `ncurses5-compat-libs` `lib32-clang`
 
