@@ -46,6 +46,7 @@ Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'taghighlight'
 Plugin 'taglist.vim'
 Plugin 'winmanager'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -106,6 +107,7 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 let g:winManagerWidth=30
 
 function! NERDTree_Start() 
+    cmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary")  | qa | endif
 " 关闭winmanager打开的一个空buff
     exec 'q'    
     exec 'NERDTree'
@@ -113,4 +115,10 @@ endfunction
 function! NERDTree_IsValid()
     return 1
 endfunction
+"autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")  | qa | endif
 map <F2> :WMToggle<CR>
+
+"YouCompleteMe
+let g:ycm_global_ycm_extra_conf='/home/craboyang/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=0
+let g:ycm_extra_conf_globlist=['~/dev/*', '~!~/*']
