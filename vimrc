@@ -43,11 +43,16 @@ Plugin 'iamcco/markdown-preview.vim'
 
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
+Plugin 'taghighlight'
+Plugin 'taglist.vim'
+Plugin 'winmanager'
+
 call vundle#end()
 filetype plugin indent on
 
 " mark-down configure
-let g:mkdp_path_to_chrome = '/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
+let g:mkdp_path_to_chrome = '/opt/google/chrome/google-chrome'
+"let g:mkdp_path_to_chrome = '/cygdrive/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_open = 1
 let g:mkdp_auto_close = 1
@@ -77,7 +82,6 @@ set autochdir
 set tags+=./tags
 
 " highlight
-
 hi CTagsGlobalVariable ctermfg=124 cterm=bold
 hi CTagsMember ctermfg=white
 hi Function ctermfg=40
@@ -85,8 +89,28 @@ set t_Co=256
 
 " NERD tree
 set mouse=a
-map <F2> :NERDTreeToggle<CR>
+"map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd vimenter * NERDTree "自动打开NERDTree
 let NERDTreeWinSize=20
 let NERDTreeIgnore=['\.pyc','\.swp']
+
+" Taglist
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Process_File_Always=1
+
+" WinManager
+let g:NERDTree_title="NERD Tree"
+let g:winManagerWindowLayout='NERDTree|TagList'
+let g:winManagerWidth=30
+
+function! NERDTree_Start() 
+" 关闭winmanager打开的一个空buff
+    exec 'q'    
+    exec 'NERDTree'
+endfunction
+function! NERDTree_IsValid()
+    return 1
+endfunction
+map <F2> :WMToggle<CR>
