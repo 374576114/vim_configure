@@ -1,9 +1,53 @@
 # vim-configure
 
-## Info
-the scripts plugin and vimrc
+## INFO
+- the scripts plugin and vimrc
+- archlinux下面建议安装gvim，优点
+  - 有`*` `+`等粘贴板，能与系统的粘贴板做交互
+  - 编辑靠键盘，看源码靠鼠标
+
+## 一些好用的教程
+
+- vim script语法说明 [点击](http://learnvimscriptthehardway.onefloweroneworld.com/)
+
+### 配置中已经使用的F快捷键
+
+- `F2` 调出NERDTree跟Tlist窗口
+- `F3` 使用Cscope插件的功能，找出该函数被所有被调用的地方
+- `F5` 使用`scripts/custom.vim`中的编译c/c++程序的函数
 
 ---
+
+### Cscope
+
+**前提**
+
+首先需要需要确定**已经安装cscope**，同时vim插件中**有cscope.vim**
+
+**基本用法**
+
+`cscope -Rbq` 递归、不进GUI、快速，会生成三个文件`cscope.out` `cscope.in.out` `cscope.po.out`
+
+**vim 映射及其基本用法**
+
+```
+" s: Find this C symbol
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+```
 
 ### YouCompleteMe
 

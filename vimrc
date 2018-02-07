@@ -30,7 +30,7 @@ set nocompatible
 source ~/.vim/scripts/*.vim
 
 "map 
-:map <F5> <Esc>:call CallGpp()<CR>
+nmap <F5> <Esc>:call CallGpp()<CR>
 
 " plugin
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -40,7 +40,7 @@ Plugin 'VundleVim/Vundle.vim'
 " :h markdown
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
-
+Plugin 'cscope.vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'taghighlight'
@@ -90,7 +90,7 @@ set t_Co=256
 
 " NERD tree
 set mouse=a
-"map <F2> :NERDTreeToggle<CR>
+" map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd vimenter * NERDTree "自动打开NERDTree
 let NERDTreeWinSize=20
@@ -115,11 +115,26 @@ endfunction
 function! NERDTree_IsValid()
     return 1
 endfunction
-"autocmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")  | qa | endif
-map <F2> :WMToggle<CR>
+nmap <F2> :WMToggle<CR>
 
 "YouCompleteMe
-let g:ycm_global_ycm_extra_conf='/home/craboyang/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:ycm_extra_conf_globlist=['~/dev/*', '~!~/*']
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" cscope map
+let mapleader="cs"
+let csdb_path="~/RAID/raid_src/raid-fc-bio-ft/raid-fc-bio-ft/"
+" add cscope db
+cs add csdb_path
+" cscope -Rbq
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
+nnoremap <F3> :call cscope#find('c', expand('<cword>'))<CR>
