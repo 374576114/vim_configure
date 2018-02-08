@@ -9,6 +9,28 @@
 
 ## 安装
 
+- **注意，执行install.sh会覆盖你的~/.vimrc**
+- 如果是初始环境，那么只需`./install.sh`，然后输入y确定覆盖
+- 根据显示的todo去做接下来的事，基本上包括一下几件事
+  - 执行`:PluginInstall`安装插件
+  - 需要安装`YouCompleteMe`，可以[参考后面](#YouCompleteMe)
+  - 根据需求修改**快捷键** **google-chrome**路径等
+  - 同时可以根据自己需求删除自己不需要的插件
+
+## 已经装的插件
+
+- Plugin 'VundleVim/Vundle.vim'
+- Plugin 'iamcco/mathjax-support-for-mkdp'
+- Plugin 'iamcco/markdown-preview.vim'
+- Plugin 'cscope.vim'
+- Plugin 'vim-scripts/indentpython.vim'
+- Plugin 'git://github.com/scrooloose/nerdtree.git'
+- Plugin 'taghighlight'
+- Plugin 'taglist.vim'
+- Plugin 'winmanager'
+- Plugin 'vim-airline'
+- Plugin 'Valloric/YouCompleteMe'
+
 ## 一些好用的教程
 
 - vim script语法说明 [点击](http://learnvimscriptthehardway.onefloweroneworld.com/)

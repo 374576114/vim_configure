@@ -34,6 +34,7 @@ if [[ ${choice} == "y" ]]; then
     cp -r ./scripts ~/.vim/scripts
     todo
 else
+    echo 'Now I quit with doing nothing'
     echo 'Just see my ./vimrc and change your ~/.vimrc'
 fi
 
