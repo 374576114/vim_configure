@@ -1,10 +1,13 @@
 # vim-configure
 
 ## INFO
+
 - the scripts plugin and vimrc
 - archlinux下面建议安装gvim，优点
   - 有`*` `+`等粘贴板，能与系统的粘贴板做交互
   - 编辑靠键盘，看源码靠鼠标
+
+## 安装
 
 ## 一些好用的教程
 

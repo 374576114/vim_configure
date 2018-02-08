@@ -32,6 +32,12 @@ source ~/.vim/scripts/*.vim
 "map 
 nmap <F5> <Esc>:call CallGpp()<CR>
 
+" Vim jump to the last position when reopening a file
+if has("autocmd")
+    au BufReadPost * exe "normal! g`\""
+    au BufReadPost * exe "normal! zz"
+endif
+
 " plugin
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -46,6 +52,7 @@ Plugin 'git://github.com/scrooloose/nerdtree.git'
 Plugin 'taghighlight'
 Plugin 'taglist.vim'
 Plugin 'winmanager'
+Plugin 'vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -107,7 +114,7 @@ let g:winManagerWindowLayout='NERDTree|TagList'
 let g:winManagerWidth=30
 
 function! NERDTree_Start() 
-    cmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary")  | qa | endif
+"    cmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary")  | qa | endif
 " 关闭winmanager打开的一个空buff
     exec 'q'    
     exec 'NERDTree'
@@ -115,7 +122,7 @@ endfunction
 function! NERDTree_IsValid()
     return 1
 endfunction
-nmap <F2> :WMToggle<CR>
+nmap <F2> : WMToggle<CR>
 
 "YouCompleteMe
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
@@ -138,3 +145,7 @@ nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
 nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
 nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 nnoremap <F3> :call cscope#find('c', expand('<cword>'))<CR>
+
+" air-line
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
