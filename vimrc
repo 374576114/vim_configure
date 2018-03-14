@@ -130,11 +130,10 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_extra_conf_globlist=['~/dev/*', '~!~/*']
 let g:ycm_autoclose_preview_window_after_completion=1
 
+" ":h cscove"  to see more
 " cscope map
-let mapleader="cs"
-let csdb_path="~/RAID/raid_src/raid-fc-bio-ft/raid-fc-bio-ft/"
-" add cscope db
-cs add csdb_path
+let mapleader="\\"
+" add cscope db: cscove can do it!
 " cscope -Rbq
 nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
 nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
