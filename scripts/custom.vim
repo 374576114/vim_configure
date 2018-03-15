@@ -66,7 +66,7 @@ def print_msg(normal, error, f):
 
 def run_arg():
     print vim.current.buffer.name
-    cmd = ['g++']
+    cmd = ['g++', '-o', 'a.out']
     name = vim.current.buffer.name.split('/')[-1];
     cmd.append(name)
 
@@ -75,9 +75,9 @@ def run_arg():
     err = result.stderr.readlines()
 
     if not err:
-        result = Popen('./a.exe', stdout=PIPE, stderr=PIPE)
+        result = Popen('./a.out', stdout=PIPE, stderr=PIPE)
         tmp = result.stdout.readlines()
-        out.append('>>>./a.exe')
+        out.append('>>>./a.out')
         out += tmp
         err.append('Successfully!')
 
