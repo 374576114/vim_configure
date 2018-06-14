@@ -115,6 +115,9 @@ let g:winManagerWidth=30
 
 function! NERDTree_Start() 
 "    cmd bufenter * if (winnr("$") == 2 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary")  | qa | endif
+
+" 如果:WMToggle后直接关闭了窗口，那么说明没有空buff，直接注释掉
+“ 后面的exec 'q'即可
 " 关闭winmanager打开的一个空buff
     exec 'q'    
     exec 'NERDTree'
